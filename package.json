@@ -1,0 +1,29 @@
+{
+  "dependencies": {},
+  "description": "A Bomberman game with multiplayer",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-preset-es2016": "^6.24.1",
+    "enumify": "^1.0.4",
+    "firebase": "^4.2.0",
+    "install": "^0.10.1",
+    "phaser": "^3.0.0-alpha.2",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
+  },
+  "directories": {},
+  "license": "ISC",
+  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
+  "main": "src/main.js",
+  "name": "bomberman",
+  "scripts": {
+    "build-webpack": "webpack",
+    "build-babel": "babel src --out-file build/bundle.js",
+    "watch-babel": "babel src --watch --out-file build/bundle.js",
+    "dev-server": "webpack-dev-server"
+  },
+  "version": "1.0.0"
+}
