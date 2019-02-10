@@ -15,7 +15,7 @@
       <extension name="ZendCache" enabled="false" />
       <extension name="ZendDebugger" enabled="false" />
       <extension name="ZendUtils" enabled="false" />
-      <extension name="ampq" enabled="false" />
+      <extension name="amqp" enabled="false" />
       <extension name="apache" enabled="false" />
       <extension name="apc" enabled="false" />
       <extension name="apcu" enabled="false" />
@@ -67,7 +67,6 @@
       <extension name="memcache" enabled="false" />
       <extension name="memcached" enabled="false" />
       <extension name="meta" enabled="false" />
-      <extension name="mime_magic" enabled="false" />
       <extension name="ming" enabled="false" />
       <extension name="mongo" enabled="false" />
       <extension name="mongodb" enabled="false" />
@@ -103,6 +102,7 @@
       <extension name="snmp" enabled="false" />
       <extension name="soap" enabled="false" />
       <extension name="sockets" enabled="false" />
+      <extension name="sodium" enabled="false" />
       <extension name="sqlite3" enabled="false" />
       <extension name="sqlsrv" enabled="false" />
       <extension name="ssh2" enabled="false" />
@@ -118,6 +118,7 @@
       <extension name="tokenizer" enabled="false" />
       <extension name="v8js" enabled="false" />
       <extension name="wddx" enabled="false" />
+      <extension name="win32service" enabled="false" />
       <extension name="wincache" enabled="false" />
       <extension name="xcache" enabled="false" />
       <extension name="xdebug" enabled="false" />

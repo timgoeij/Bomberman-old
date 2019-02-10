@@ -1,42 +1,20 @@
-import Game from "./Game/Game"
-import FirebaseControllerClient from "./Firebase/FirebaseControllerClient"
-import FireBaseControllerServer from "./Firebase/FireBaseControllerServer"
+import Game from "./Game"
+//import io from "socket.io-client"
 
-window.CLIENT_ID = "";
-window.SERVER_CLIENTS_MAP = new Map();
+(function () {
 
-/*var config = {
-    type: Phaser.AUTO,
-    parent: 'phaser-example',
-    width: 800,
-    height: 600,
-    scene: {
-        preload: preload,
-        create: create
-    }
-};*/
+    let init = function()
+    {
+        let game = new Game();
 
-var game = new Game();
+        //let socket = io();
 
-/*var serverController = new FireBaseControllerServer();
-var clientController = new FirebaseControllerClient();*/
+        //socket.on("test", () =>
+        //{
 
-/*function preload ()
-{
-    this.load.image('logo', 'assets/logo.png');
-}
+        //});
+    };
 
-function create ()
-{
-    var logo = this.add.image(400, 150, 'logo');
+    window.addEventListener("load", init);
 
-    this.tweens.add({
-        targets: logo,
-        y: 450,
-        duration: 2000,
-        ease: 'Power2',
-        yoyo: true,
-        loop: -1
-    });
-
-}*/
+})();
