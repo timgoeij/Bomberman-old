@@ -23,6 +23,12 @@ class Bomb extends GameObject
         this.game.physics.add.overlap(this.BombBeams, this.tileManager.GetTileGroup(),
             this.CheckCollisionBetweenBeamAndTiles, null, this);
     }
+  
+    Destroy()
+    {
+        this.game.physics.remove.overlap(this.BombBeams, this.tileManager.GetTileGroup(),
+            this.CheckCollisionBetweenBeamAndTiles, null, this);
+    }
 
     ActivateBeams()
     {
@@ -46,14 +52,6 @@ class Bomb extends GameObject
 
         leftBeam.setFlipY(true);
         leftBeam.setAngle(180);
-
-        leftBeam.on("animationcomplete", () =>
-        {
-            this.BombBeams.children.iterate( (child) => {
-                if(child)
-                    child.destroy();
-            });
-        }, this);
 
         this.BombBeams.children.iterate( (child) =>
         {
