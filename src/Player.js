@@ -21,19 +21,15 @@ class Player extends GameObject
         this.bombList = [];
 
         game.physics.add.collider(sprite, tileManager.GetTileGroup());
+        game.physics.add.collider(sprite, this.bombGroup)
     }
 
     Update()
     {
         this.Input();
 
-        this.game.physics.add.overlap(this.sprite, this.bombGroup);
-
         for(let bomb of this.bombList)
         {
-            bomb.Update();
-            this.game.physics.add.overlap(this.sprite, bomb.BombBeams, this.CheckCollisionsWirhBombs, null, this);
-
             if(bomb.isDead)
             {
                 this.DeleteBombs(bomb);
@@ -109,6 +105,12 @@ class Player extends GameObject
     {
         let index = this.bombList.indexOf(bomb);
         this.bombList.splice(index, 0);
+    }
+  
+    Destroy()
+    {
+        this.game.physics.remove.overlap(this.sprite, this.bombGroup);
+        this.game.physics.remove.collider(this.sprite, this.tileManager.TileGroup());
     }
 }
 
