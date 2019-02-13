@@ -89,12 +89,6 @@ class Player extends GameObject
         }, [], this);
     }
 
-    CheckCollisionsWirhBombs(player, bomb)
-    {
-        if(bomb.anims.getProgress() >= 0.75)
-            this.ResetPosition();
-    }
-
     ResetPosition()
     {
         this.sprite.x = this.xPos;

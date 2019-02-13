@@ -3,7 +3,7 @@ import GameObject from "./GameObject";
 
 class Bomb extends GameObject
 {
-    constructor(sprite, game, tileManager)
+    constructor(sprite, game, tileManager, player)
     {
         super(sprite);
 
@@ -12,22 +12,24 @@ class Bomb extends GameObject
         this.game = game;
 
         this.tileManager = tileManager;
+      
+        this.player = player;
 
         game.time.delayedCall(5000, this.ActivateBeams, [], this);
         game.time.delayedCall(7000, this.Destroy, [], this);
+      
+        game.physics.add.overlap(this.BombBeams, this.tileManager.GetTileGroup(),
+                                this.CheckCollisionBetweenBeamAndTiles, null, this);
+      
+        game.physics.add.overlap(this.BombBeams, player, this.CheckCollisionBetweenBeamAndPlayer, null, this);        
     }
 
-    Update()
-    {
-
-        this.game.physics.add.overlap(this.BombBeams, this.tileManager.GetTileGroup(),
-            this.CheckCollisionBetweenBeamAndTiles, null, this);
-    }
-  
     Destroy()
     {
         this.game.physics.remove.overlap(this.BombBeams, this.tileManager.GetTileGroup(),
             this.CheckCollisionBetweenBeamAndTiles, null, this);
+      
+        this.game.physics.remove.overlap(this.BombBeams, this.player, this.CheckCollisionBetweenBeamAndPlayer, null, this);
     }
 
     ActivateBeams()
@@ -83,6 +85,14 @@ class Bomb extends GameObject
             }
         }
     }
+  
+    CheckCollisionBetweenBeamAndPlayer(beam, player)
+    {
+      if(beam.anims.getProgress() >= 0.75)
+        {
+          player.ResetPosition();
+        }
+    }  
 }
 
 export default Bomb;
