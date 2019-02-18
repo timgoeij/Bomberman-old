@@ -109,12 +109,21 @@ class TileManager
     {
         return this.TileGroup;
     }
-
-    CheckSpawnPos(position)
+  
+    CheckSpawnPos(position, onlyIndex = false)
     {
         let wIndex = Math.round(position.x / 28);
         let hIndex = Math.round(position.y / 28);
 
+        if(onlyIndex)
+        {
+            return {
+                x: wIndex * 28,
+                y: hIndex * 28
+            }   
+        }
+
+              
         let checkedIndex = this.CheckIndexIsInBounds(wIndex, hIndex);
 
         if(checkedIndex)

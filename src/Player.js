@@ -79,8 +79,11 @@ class Player extends GameObject
     {
         this.bombDropped = true;
         let bombSprite = this.bombGroup.create(this.sprite.x, this.sprite.y, "Bomb").setOrigin(0,0);
+      
+        let indexedPosition = this.tileManager.CheckSpawnPos({x: bombSprite.x, y: bombSprite.y}, true)
 
         let bomb = new Bomb(bombSprite, this.game, this.tileManager);
+        
         this.bombList.push(bomb);
 
         this.game.time.delayedCall(3000, () =>
