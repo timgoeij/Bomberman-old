@@ -24,15 +24,7 @@ class Bomb extends GameObject
         game.physics.add.overlap(this.BombBeams, player, this.CheckCollisionBetweenBeamAndPlayer, null, this);        
     }
 
-    Destroy()
-    {
-        this.game.physics.remove.overlap(this.BombBeams, this.tileManager.GetTileGroup(),
-            this.CheckCollisionBetweenBeamAndTiles, null, this);
-      
-        this.game.physics.remove.overlap(this.BombBeams, this.player, this.CheckCollisionBetweenBeamAndPlayer, null, this);
-    }
-
-    ActivateBeams()
+     ActivateBeams()
     {
         let topBeam = this.BombBeams.create(this.sprite.x + (this.sprite.width / 2),
             (this.sprite.y + 28) + (this.sprite.height / 2), "Beam");

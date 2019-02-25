@@ -103,12 +103,6 @@ class Player extends GameObject
         let index = this.bombList.indexOf(bomb);
         this.bombList.splice(index, 0);
     }
-  
-    Destroy()
-    {
-        this.game.physics.remove.overlap(this.sprite, this.bombGroup);
-        this.game.physics.remove.collider(this.sprite, this.tileManager.TileGroup());
-    }
 }
 
 export default Player;
