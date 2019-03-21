@@ -5,8 +5,6 @@ var io = require('socket.io').listen(server);
 
 
 var rooms = {};
-var players = {};
-
 
 app.use(express.static(__dirname + "/public"));
 
@@ -35,13 +33,17 @@ function OnSocketConnect(socket) {
         var currentPlayercount = rooms[roomName].playerCount;
 
         rooms[roomName].playerCount = currentPlayercount +1;
+		rooms[roomName].players.push(socket.id);
     }
     else
     {
         rooms[roomName] =
             {
-                playerCount: 1
+                playerCount: 1,
+				players: new array()
             }
+
+		rooms[roomName].players.push(socket.id);
     }
 
     socket.join(roomName);
@@ -49,6 +51,13 @@ function OnSocketConnect(socket) {
 
 function OnSocketDisconnect(socket) {
 
+		rooms.foreach(function(key, value)
+			{
+					for(var i = 0; i < value.players; i++)
+					{
+							let indexedPlayer = value.players[i];	
+					}				
+			});
 }
 
 function GetRoomName() {
